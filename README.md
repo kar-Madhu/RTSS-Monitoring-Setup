@@ -41,7 +41,7 @@ v = 331.3 + 0.606*T + 0.0124*H
 ### Physical Setup:
 - Distance from sensor to reflector = **25.6 cm** (vertical).
 - Correction applied:  
-  L_{corrected} = sqrt{(25.6)^2 + (1.05)^2} -- approx 25.62 cm
+  L<sub> corrected</sub> = $\sqrt{25.6^2+1.05^2}$ -- approx 25.62 cm
 
 See `/media` folder for reference images.
 
