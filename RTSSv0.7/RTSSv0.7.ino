@@ -1,4 +1,4 @@
-//read README.txt first to understand the calcuations made.
+//check the images first to understand the setup needed and the calculations made.
 
 #include <esp_timer.h>
 #include <DHT.h>
@@ -73,7 +73,7 @@ void loop() {
     if (input == "x") {
       for (int i = 0; i < 10; i++) {
         RTSS();
-        delay(2000);
+        delay(5000);
       }
     }
   }
