@@ -10,9 +10,9 @@ June 2025
 
 RTSS (Real-Time Speed of Sound) is an ESP32-based project that monitors the speed of sound through air by:
 
-- Measuring echo time via HC-SR04 (ultrasonic sensor) using interrupt-based timing, and calculating speed = distance/time;
-- Reading temperature and humidity via DHT11;
 - Comparing **experimental vs theoretical** speeds of sound.
+- Theoretical : Reading temperature and humidity via DHT11, calculating speed of sound according to it;
+- Experimental : RTSS measuring setup.
 
 All results are logged over Serial Monitor.
 
