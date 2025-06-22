@@ -20,9 +20,7 @@ To compute and compare the speed of sound using:
 
 The speed of sound from distance and time-of-flight is calculated as:
 
-```
-S(D, Δt)  = D <sub>corrected</sub> / (Δt / 2)
-```
+$S(D, \Delta t) = \dfrac{D_{\text{corrected}}}{\Delta t / 2}$
 
 Where:
 
@@ -31,9 +29,7 @@ Where:
 
 Since the offset between the transmitter and receiver is 2.1cm, the effective distance is:
 
-```
-D<sub>corrected</sub> = sqrt(D^2 + 1.05^2)
-```
+$D_{\text{corrected}} = \sqrt{D^2 + 1.05^2}$  
 
 ---
 
@@ -41,9 +37,7 @@ D<sub>corrected</sub> = sqrt(D^2 + 1.05^2)
 
 An empirical correction to the dry-air sound speed formula is used for real-time embedded computation:
 
-```
-S(T, H) = (331.3 + 0.606 * T) * [1 + (H / 100) * P(T)]
-```
+$S(T, H) = \left(331.3 + 0.606 \cdot T\right) \cdot \left[1 + \dfrac{H}{100} \cdot P(T)\right]$
 
 Where:
 
@@ -51,9 +45,7 @@ Where:
 * `H` = Relative Humidity in %
 * `P(T)` is a 4th-degree polynomial:
 
-```
-P(T) = 9.66e-4 + 7.2e-5*T + 1.8e-6*T^2 + 7.2e-8*T^3 + 6.5e-11*T^4
-```
+$P(T) = 9.66 \times 10^{-4} + 7.2 \times 10^{-5} \cdot T + 1.8 \times 10^{-6} \cdot T^2 + 7.2 \times 10^{-8} \cdot T^3 + 6.5 \times 10^{-11} \cdot T^4$
 
 This model is accurate to \~0.1% in the range 0–30°C and 0–100% RH.
 
@@ -140,7 +132,6 @@ RTSS-MS demonstrates real-time acoustic measurement using low-cost sensors and m
 
 This system can be extended for:
 
-* Acoustic sensing in drones
 * Environmental monitoring kits
 * Real-time calibration experiments
 
