@@ -23,7 +23,7 @@ Where:
 
 This can be approximated empirically for dry air at ambient pressure:
 
-    $$c_{\text{dry}}(T_C) \approx 331.3 + 0.606 \cdot T_C \quad (T_C \text{ in } ^\circ\mathrm{C})$$
+    $c_{\text{dry}}(T_C) \approx 331.3 + 0.606 \cdot T_C \quad (T_C \text{ in } ^\circ\mathrm{C})$
 
 where T is in °C
 
@@ -35,7 +35,7 @@ polynomial fit P(T) over the range of 0°C to 30°C and relative humidity from 0
 
 Their result expresses the speed of sound in humid air as:
 
-    \frac{c_{\text{humid}}}{c_{\text{dry}}} = 1 + h \cdot P(T)
+    $ \frac{c_{\text{humid}}}{c_{\text{dry}}} = 1 + h \cdot P(T) $
 
 Where:
 - h = H / 100 : relative humidity as a fraction (0–1)
