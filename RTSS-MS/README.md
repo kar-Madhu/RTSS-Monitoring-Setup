@@ -47,7 +47,7 @@ Where:
 
 $P(T) = 9.66 \times 10^{-4} + 7.2 \times 10^{-5} \cdot T + 1.8 \times 10^{-6} \cdot T^2 + 7.2 \times 10^{-8} \cdot T^3 + 6.5 \times 10^{-11} \cdot T^4$
 
-This model is accurate to \~0.1% in the range 0–30°C and 0–100% RH.
+This model is accurate to \~0.1% in the range 0–30°C and 0–100% RH. For more details, refer "Variation of the speed of sound in air with humidity and temperature" by G. S. K. Wong & T. F. W. Embleton.
 
 ---
 
@@ -55,10 +55,10 @@ This model is accurate to \~0.1% in the range 0–30°C and 0–100% RH.
 
 ### Components used:
 
-* ESP32 Dev Board (with built-in WiFi)
+* ESP32 MCU Dev Board (DOIT DEVKIT V1, has built-in WiFi module)
 * HC-SR04 Ultrasonic Sensor
-* DHT11 Temperature & Humidity Sensor
-* Set Squares for alignment
+* DHT11 Digital Humidity & Temperature Sensor
+* Omega Set Squares for physical alignment checking
 * USB power, wires and breadboard setup
 
 ---
@@ -86,8 +86,8 @@ Timestamps are captured using `esp_timer_get_time()` for microsecond accuracy.
 
 1. Measure `T` and `H` using DHT11
 2. Trigger ultrasonic and measure time-of-flight
-3. Compute `S_TH` and `S_D`
-4. Check alignment (`|S_TH - S_D| ≤ threshold`)
+3. Compute `S(T, H)` and `S(D, Δt)`
+4. Check alignment (`|S(T, H) - S(D, Δt)| ≤ threshold`)
 5. Upload to ThingSpeak (if alignmentCheck returns true)
 
 ---
@@ -122,41 +122,16 @@ Timestamps are captured using `esp_timer_get_time()` for microsecond accuracy.
 | 2025-06-22 08:39:22 | 5     | 29.9      | 78           | 351.24673     | 350.97980      |
 | 2025-06-22 08:39:53 | 6     | 29.9      | 79           | 351.27014     | 350.97980      |
 
-> Observations: S(D, Δt) closely tracks S(T, H) with <1 m/s deviation.
+> Observations: S(D, Δt) closely tracks S(T, H) with <1 m/s deviation. As it should, in real time.
 
 ---
 
 ## 7. Conclusion
 
-RTSS-MS demonstrates real-time acoustic measurement using low-cost sensors and microcontroller-based computation. Wong–Embleton scaling enables embedded environmental correction with minimal overhead. Validated readings show sub-1% error across multiple cycles.
+RTSS-MS demonstrates real-time acoustic measurement using low-cost sensors and microcontroller-based computation. Wong–Embleton scaling enables embedded environmental correction with minimal overhead. Both calculations compliment each other. Validated readings show sub-1% error across multiple cycles.
 
-This system can be extended for:
-
-* Environmental monitoring kits
-* Real-time calibration experiments
+This system can be extended for Environmental monitoring kits and Real-time calibration experiments.
 
 ---
-
-## 8. Appendix
-
-### Key Functions:
-
-```cpp
-float getS_D(uint64_t start, uint64_t end, float D_cm) {
-  double time = 0.5 * (end - start) / 1e6;
-  float D_m = sqrt(D_cm * D_cm + 1.05 * 1.05) / 100.0;
-  return D_m / time;
-}
-
-float getS_TH(float T, float H) {
-  float factor = (H / 100.0) * (
-    9.66e-4 + 7.2e-5 * T + 1.8e-6 * T * T +
-    7.2e-8 * T * T * T + 6.5e-11 * T * T * T * T
-  );
-  return (331.3 + 0.606 * T) * (1 + factor);
-}
-```
----
-
 *Author: Parth Kadam (B.Tech ExTC, FE, SPIT)*
 *Date: June 2025*
