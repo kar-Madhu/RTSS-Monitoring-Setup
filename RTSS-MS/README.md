@@ -1,6 +1,6 @@
 # RTSS-MS: Real-Time Speed of Sound Monitor
 
-An embedded-systems based setup to measure the speed of sound in real time using environmental and ultrasonic sensing, implemented on an ESP32 with ThingSpeak integration.
+A complete yet lightweight setup combining embedded systems, IoT, and physics to measure the speed of sound in real time using ultrasonic sensing and environmental data, implemented on an ESP32 with ThingSpeak integration.
 
 ---
 
@@ -16,23 +16,23 @@ To compute and compare the speed of sound using:
 
 ## 2. Theory
 
-### S(D, Δt) — Distance-Based Speed of Sound
+### S(D, Δt) — Distance-Time Based Speed of Sound
 
 The speed of sound from distance and time-of-flight is calculated as:
 
 ```
-S_D = D / (Δt / 2)
+S(D, Δt)  = D <sub>corrected</sub> / (Δt / 2)
 ```
 
 Where:
 
 * `D` is the distance from sensor to reflecting surface (in meters)
-* `Δt` is the round-trip time measured using interrupts on the ESP32
+* `Δt` is the round-trip time (time of flight) measured using interrupts on the ESP32
 
-If the sensor is vertically offset from the reflector, the effective distance is:
+Since the offset between the transmitter and receiver is 2.1cm, the effective distance is:
 
 ```
-D_corrected = sqrt(D^2 + h^2)
+D<sub>corrected</sub> = sqrt(D^2 + 1.05^2)
 ```
 
 ---
@@ -96,7 +96,7 @@ Timestamps are captured using `esp_timer_get_time()` for microsecond accuracy.
 2. Trigger ultrasonic and measure time-of-flight
 3. Compute `S_TH` and `S_D`
 4. Check alignment (`|S_TH - S_D| ≤ threshold`)
-5. Upload to ThingSpeak if aligned
+5. Upload to ThingSpeak (if alignmentCheck returns true)
 
 ---
 
