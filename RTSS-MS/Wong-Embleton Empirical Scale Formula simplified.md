@@ -44,7 +44,7 @@ Where:
 
 The polynomial is: 
 
-$ P(T) = 9.66 \times 10^{-4} + 7.2 \times 10^{-5} T + 1.8 \times 10^{-6} T^2 + 7.2 \times 10^{-8} T^3 + 6.5 \times 10^{-11} T^4 $
+$P(T) = 9.66 \times 10^{-4} + 7.2 \times 10^{-5} T + 1.8 \times 10^{-6} T^2 + 7.2 \times 10^{-8} T^3 + 6.5 \times 10^{-11} T^4$
     
 Final Empirical Formula for RTSSv1
 -----------------------------------
