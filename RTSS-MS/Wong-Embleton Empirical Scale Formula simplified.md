@@ -1,4 +1,4 @@
-## Speed of Sound in Humid Air — Empirical Model for RTSS-MS
+## Speed of Sound in Humid Air - Empirical Model for RTSS-MS
 ---------------------------------------------------------
 
 Overview
@@ -8,7 +8,7 @@ For embedded and real-time applications, where simplicity and speed matter,
 an empirical model can provide accurate results over common environmental ranges 
 without the computational cost of full acoustic calculations.
 
-Base Model — Dry Air
+Base Model - Dry Air
 ---------------------
 The ideal gas expression for the speed of sound in dry air is: 
 
@@ -27,7 +27,7 @@ $c_{\text{dry}}(T_C) \approx 331.3 + 0.606 \cdot T_C \quad (T_C \text{ in } ^\ci
 
 where T is in °C
 
-Humidity Correction — Empirical Fit
+Humidity Correction - Empirical Fit
 -----------------------------------
 Humidity increases the speed of sound because water vapor is lighter than dry air. 
 Wong & Embleton (1980) provided an empirical correction factor as a 4th-degree 
@@ -46,7 +46,7 @@ The polynomial is:
 
 $P(T) = 9.66 \times 10^{-4} + 7.2 \times 10^{-5} T + 1.8 \times 10^{-6} T^2 + 7.2 \times 10^{-8} T^3 + 6.5 \times 10^{-11} T^4$
     
-Final Empirical Formula for RTSSv1
+Final Empirical Formula for RTSS-MS
 -----------------------------------
 The RTSSv1 acoustic subsystem uses the following final model for computing 
 speed of sound from temperature (°C) and relative humidity (%):
