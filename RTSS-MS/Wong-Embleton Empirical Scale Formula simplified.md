@@ -10,9 +10,9 @@ without the computational cost of full acoustic calculations.
 
 Base Model — Dry Air
 ---------------------
-The ideal gas expression for the speed of sound in dry air is:
+The ideal gas expression for the speed of sound in dry air is: 
 
-    $c = \sqrt{\frac{\gamma R T}{M}}$
+$c = \sqrt{\frac{\gamma R T}{M}}$
 
 Where:
 - c: speed of sound [m/s]
@@ -42,16 +42,16 @@ Where:
 - T: temperature in °C
 - P(T): polynomial in T
 
-The polynomial is:
+The polynomial is: 
 
-    $$ P(T) = 9.66 \times 10^{-4} + 7.2 \times 10^{-5} T + 1.8 \times 10^{-6} T^2 + 7.2 \times 10^{-8} T^3 + 6.5 \times 10^{-11} T^4 $$
-
+$ P(T) = 9.66 \times 10^{-4} + 7.2 \times 10^{-5} T + 1.8 \times 10^{-6} T^2 + 7.2 \times 10^{-8} T^3 + 6.5 \times 10^{-11} T^4 $
+    
 Final Empirical Formula for RTSSv1
 -----------------------------------
 The RTSSv1 acoustic subsystem uses the following final model for computing 
 speed of sound from temperature (°C) and relative humidity (%):
 
-    $$S(T, H) = (331.3 + 0.606 \cdot T) \left[1 + \frac{H}{100} \left(9.66 \times 10^{-4} + 7.2 \times 10^{-5} T + 1.8 \times 10^{-6} T^2 + 7.2 \times 10^{-8} T^3 + 6.5 \times 10^{-11} T^4 \right) \right]$$
+    $S(T, H) = (331.3 + 0.606 \cdot T) \left[1 + \frac{H}{100} \left(9.66 \times 10^{-4} + 7.2 \times 10^{-5} T + 1.8 \times 10^{-6} T^2 + 7.2 \times 10^{-8} T^3 + 6.5 \times 10^{-11} T^4 \right) \right]$
 
 
 Where:
