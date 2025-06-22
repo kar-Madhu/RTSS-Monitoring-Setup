@@ -12,7 +12,7 @@ Base Model — Dry Air
 ---------------------
 The ideal gas expression for the speed of sound in dry air is:
 
-    c = sqrt(γ * R * T / M)
+    $c = \sqrt{\frac{\gamma R T}{M}}$
 
 Where:
 - c: speed of sound [m/s]
@@ -23,7 +23,9 @@ Where:
 
 This can be approximated empirically for dry air at ambient pressure:
 
-    c_dry(T_C) ≈ 331.3 + 0.606 * T_C     (T_C in °C)
+    $$c_{\text{dry}}(T_C) \approx 331.3 + 0.606 \cdot T_C \quad (T_C \text{ in } ^\circ\mathrm{C})$$
+
+where T is in °C
 
 Humidity Correction — Empirical Fit
 -----------------------------------
@@ -33,7 +35,7 @@ polynomial fit P(T) over the range of 0°C to 30°C and relative humidity from 0
 
 Their result expresses the speed of sound in humid air as:
 
-    c_humid / c_dry = 1 + h * P(T)
+    \frac{c_{\text{humid}}}{c_{\text{dry}}} = 1 + h \cdot P(T)
 
 Where:
 - h = H / 100 : relative humidity as a fraction (0–1)
@@ -42,14 +44,15 @@ Where:
 
 The polynomial is:
 
-    P(T) = 9.66e-4 + 7.2e-5*T + 1.8e-6*T^2 + 7.2e-8*T^3 + 6.5e-11*T^4
+    $$ P(T) = 9.66 \times 10^{-4} + 7.2 \times 10^{-5} T + 1.8 \times 10^{-6} T^2 + 7.2 \times 10^{-8} T^3 + 6.5 \times 10^{-11} T^4 $$
 
 Final Empirical Formula for RTSSv1
 -----------------------------------
 The RTSSv1 acoustic subsystem uses the following final model for computing 
 speed of sound from temperature (°C) and relative humidity (%):
 
-    S(T, H) = (331.3 + 0.606 * T) * [1 + (H / 100) * (9.66e-4 + 7.2e-5*T + 1.8e-6*T^2 + 7.2e-8*T^3 + 6.5e-11*T^4)]
+    $$S(T, H) = (331.3 + 0.606 \cdot T) \left[1 + \frac{H}{100} \left(9.66 \times 10^{-4} + 7.2 \times 10^{-5} T + 1.8 \times 10^{-6} T^2 + 7.2 \times 10^{-8} T^3 + 6.5 \times 10^{-11} T^4 \right) \right]$$
+
 
 Where:
 - T: air temperature in °C
