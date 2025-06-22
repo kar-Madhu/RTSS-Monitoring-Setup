@@ -1,3 +1,5 @@
+## Real Time Speed of Sound (RTSS) - Monitoring Setup
+
 | Category                | RTSSv0.7                                                    | RTSS-MS (v1.0)                             | Commentary                                     |
 | ----------------------- | ----------------------------------------------------------- | ------------------------------------------ | ---------------------------------------------- |
 | **Objective**           | Compute and compare speed of sound using sensors            | Same core objective                        | Conceptually same — but implementation matured |
