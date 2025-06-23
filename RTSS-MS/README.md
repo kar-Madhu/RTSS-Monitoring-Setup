@@ -27,9 +27,9 @@ Where:
 * `D` is the distance from sensor to reflecting surface (in meters)
 * `Δt` is the round-trip time (time of flight) measured using interrupts on the ESP32
 
-Since the offset between the transmitter and receiver is 2.1cm, the effective distance is:
+Since the offset between the transmitter and receiver is ~2.6cm, the effective distance is:
 
-$D_{\text{corrected}} = \sqrt{D^2 + 1.05^2}$  
+$D_{\text{corrected}} = \sqrt{D^2 + 1.3^2}$  
 
 ---
 
