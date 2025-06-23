@@ -6,7 +6,7 @@ const int D = 25.6;
 
 float getS_D(uint64_t start, uint64_t end, float D){
     double time = 0.5*(end - start)/1e6;               //calculation of Δt, based on ISR function
-    float D_corrected = sqrt(sq(D) + sq(1.05))/100;    //Correction using Pythagoras formula, offset between transmitter and recieiver is ~2.1cm 
+    float D_corrected = sqrt(sq(D) + sq(1.3))/100;     //Correction using Pythagoras formula, offset between transmitter and recieiver is ~2.6cm 
 
     return D_corrected/time;                           // speed = distance/time
 }
